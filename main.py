@@ -128,21 +128,13 @@ def findTriangles(triangles):
         else:
             print("треугольник", k, "не лежит в четырех четвертях")
 
-if __name__ == '__main__':
-    t1 = Triangle()
-    t2 = Triangle()
-    t3 = Triangle()
-    t4 = Triangle()
-    t5 = Triangle()
-    line1 = readLineFromFile("input01.txt")
-    line2 = readLineFromFile("input02.txt")
-    line3 = readLineFromFile("input03.txt")
-    line4 = readLineFromFile("input04.txt")
-    line5 = readLineFromFile("input05.txt")
-    t1 = readTriangle(line1)
-    t2 = readTriangle(line2)
-    t3 = readTriangle(line3)
-    t4 = readTriangle(line4)
-    t5 = readTriangle(line5)
+def createTriangles(n):
+    triangles = []
+    for i in range(n):
+        line = readLineFromFile("input0" + str(i + 1) + ".txt")
+        t = readTriangle(line)
+        triangles.append(t)
+    return triangles
 
-    findTriangles([t1, t2, t3, t4, t5])
+if __name__ == '__main__':
+    findTriangles(createTriangles(5))
